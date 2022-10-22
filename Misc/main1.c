@@ -37,20 +37,23 @@ int main()
 	fclose(fp);
 	*/
 	fp = fopen("inventory.csv", "r");
-	fgets(buff, 1024, fp);
+	/*fgets(buff, 1024, fp);
 	printf("%s", buff);
-	/*while(fgets(buff, 1024, fp))
-		printf("%s", buff);
 	*/
+	while(fgets(buff, 1024, fp))
+	{
+		printf("%s", buff);
+		
 
-	token = strtok(buff,",");
-	
-	while( token != NULL ) {
-		token = trimwhitespace(token);
-      printf( "\n%s\n", token );
-    
-      token = strtok(NULL, ",");
-   }
+		token = strtok(buff,",");
+		
+		while( token != NULL ) {
+			token = trimwhitespace(token);
+	      printf( "\n%s\n", token );
+	    
+	      token = strtok(NULL, ",");
+	   }
+	}
 
 	// fprintf(fp, "%d, %s, %d, %f\n", 1001, "Parle G", 100, 10.0);
 	// fprintf(fp, "%d, %s, %d, %f\n", 1002, "Good Day", 100, 15.0);
